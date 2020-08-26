@@ -104,22 +104,28 @@ public class Main {
         String to = correo;
 
         // Sender's email ID needs to be mentioned
-        String from = "crisflowbg11@gmail.com";
+        String from = "medusascompany@gmail.com";
 
         // Assuming you are sending email from through gmails smtp
         String host = "smtp.gmail.com";
 
         // Get system properties
-        Properties properties = System.getProperties();
+        Properties props = System.getProperties();
 
         // Setup mail server
-        properties.put("mail.smtp.host", host);
-        properties.put("mail.smtp.port", "465");
-        properties.put("mail.smtp.ssl.enable", "true");
-        properties.put("mail.smtp.auth", "true");
+         props.put("mail.smtp.host", host);
+         props.put("mail.smtp.port", "587");
 
+         props.put("mail.smtp.auth", "true");
+
+         props.put("mail.smtp.starttls.enable", "true");
+
+         props.put("mail.debug", "true");
+         props.put("mail.store.protocol", "pop3");
+         props.put("mail.transport.protocol", "smtp");
+     props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         // Get the Session object.// and pass username and password
-        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 
             protected PasswordAuthentication getPasswordAuthentication() {
 
