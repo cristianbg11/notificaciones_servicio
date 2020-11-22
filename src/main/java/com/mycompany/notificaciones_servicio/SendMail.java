@@ -5,10 +5,7 @@
  */
 package com.mycompany.notificaciones_servicio;
 
-/**
- *
- * @author marianny
- */
+
 public class SendMail {
-    
+
 }
